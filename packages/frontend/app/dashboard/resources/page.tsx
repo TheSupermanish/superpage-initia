@@ -89,10 +89,10 @@ const typeIcons = {
 };
 
 const typeColors = {
-  api: "text-violet-400 bg-violet-500/10",
-  file: "text-blue-400 bg-blue-500/10",
-  article: "text-amber-400 bg-amber-500/10",
-  shopify: "text-primary bg-primary/10",
+  api: "text-sp-blue bg-sp-blue/10",
+  file: "text-sp-gold bg-sp-gold/10",
+  article: "text-sp-coral bg-sp-coral/10",
+  shopify: "text-sp-pink bg-sp-pink/10",
 };
 
 export default function ResourcesPage() {
@@ -297,7 +297,7 @@ export default function ResourcesPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-20">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+        <Loader2 className="h-8 w-8 animate-spin text-sp-gold" />
       </div>
     );
   }
@@ -312,13 +312,13 @@ export default function ResourcesPage() {
         </div>
         <div className="flex gap-2">
           <Link href="/dashboard/stores">
-            <button className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-xl bg-muted border border-border text-foreground hover:bg-primary/10 hover:border-primary/30 transition-colors">
+            <button className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-xl bg-muted border border-border text-foreground hover:bg-sp-gold/10 hover:border-sp-gold/30 transition-colors">
               <Store className="h-4 w-4" />
               <span className="text-sm font-medium">Manage Stores</span>
             </button>
           </Link>
           <Link href="/dashboard/resources/new">
-            <button className="flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 transition-colors shadow-lg shadow-primary/10">
+            <button className="flex items-center gap-2 px-4 py-2 rounded-xl bg-sp-gold text-white hover:bg-sp-gold/90 transition-colors shadow-lg shadow-sp-gold/10">
               <Plus className="h-4 w-4" />
               <span className="text-sm font-bold">New Resource</span>
             </button>
@@ -332,8 +332,8 @@ export default function ResourcesPage() {
           onClick={() => setActiveTab("all")}
           className={`px-4 py-2 rounded-xl text-sm font-bold transition-colors whitespace-nowrap ${
             activeTab === "all"
-              ? "bg-primary text-primary-foreground shadow-lg shadow-primary/10"
-              : "text-muted-foreground hover:text-primary hover:bg-primary/10"
+              ? "bg-sp-gold text-white shadow-lg shadow-sp-gold/10"
+              : "text-muted-foreground hover:text-sp-gold hover:bg-sp-gold/10"
           }`}
         >
           All ({resources.length})
@@ -342,8 +342,8 @@ export default function ResourcesPage() {
           onClick={() => setActiveTab("api")}
           className={`px-4 py-2 rounded-xl text-sm font-medium transition-colors flex items-center gap-2 whitespace-nowrap ${
             activeTab === "api"
-              ? "bg-primary text-primary-foreground shadow-lg shadow-primary/10"
-              : "text-muted-foreground hover:text-primary hover:bg-primary/10"
+              ? "bg-sp-gold text-white shadow-lg shadow-sp-gold/10"
+              : "text-muted-foreground hover:text-sp-gold hover:bg-sp-gold/10"
           }`}
         >
           <Code className="h-4 w-4" />
@@ -353,8 +353,8 @@ export default function ResourcesPage() {
           onClick={() => setActiveTab("file")}
           className={`px-4 py-2 rounded-xl text-sm font-medium transition-colors flex items-center gap-2 whitespace-nowrap ${
             activeTab === "file"
-              ? "bg-primary text-primary-foreground shadow-lg shadow-primary/10"
-              : "text-muted-foreground hover:text-primary hover:bg-primary/10"
+              ? "bg-sp-gold text-white shadow-lg shadow-sp-gold/10"
+              : "text-muted-foreground hover:text-sp-gold hover:bg-sp-gold/10"
           }`}
         >
           <FileText className="h-4 w-4" />
@@ -364,8 +364,8 @@ export default function ResourcesPage() {
           onClick={() => setActiveTab("article")}
           className={`px-4 py-2 rounded-xl text-sm font-medium transition-colors flex items-center gap-2 whitespace-nowrap ${
             activeTab === "article"
-              ? "bg-primary text-primary-foreground shadow-lg shadow-primary/10"
-              : "text-muted-foreground hover:text-primary hover:bg-primary/10"
+              ? "bg-sp-gold text-white shadow-lg shadow-sp-gold/10"
+              : "text-muted-foreground hover:text-sp-gold hover:bg-sp-gold/10"
           }`}
         >
           <Globe className="h-4 w-4" />
@@ -378,8 +378,8 @@ export default function ResourcesPage() {
           }}
           className={`px-4 py-2 rounded-xl text-sm font-medium transition-colors flex items-center gap-2 whitespace-nowrap ${
             activeTab === "stores"
-              ? "bg-primary text-primary-foreground shadow-lg shadow-primary/10"
-              : "text-muted-foreground hover:text-primary hover:bg-primary/10"
+              ? "bg-sp-gold text-white shadow-lg shadow-sp-gold/10"
+              : "text-muted-foreground hover:text-sp-gold hover:bg-sp-gold/10"
           }`}
         >
           <ShoppingBag className="h-4 w-4" />
@@ -395,7 +395,7 @@ export default function ResourcesPage() {
           <select
             value={selectedStore}
             onChange={(e) => setSelectedStore(e.target.value)}
-            className="px-3 py-1.5 rounded-xl bg-card border border-border text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+            className="px-3 py-1.5 rounded-xl bg-card border border-border text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-sp-gold"
           >
             <option value="all">All Stores ({storeProducts.length})</option>
             {stores.map((store) => {
@@ -414,8 +414,8 @@ export default function ResourcesPage() {
       {totalItems === 0 ? (
         <div className="bg-card border border-border rounded-2xl">
           <div className="flex flex-col items-center justify-center py-16">
-            <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-              <Plus className="h-8 w-8 text-primary" />
+            <div className="h-16 w-16 rounded-full bg-sp-gold/10 flex items-center justify-center mb-4">
+              <Plus className="h-8 w-8 text-sp-gold" />
             </div>
             <h3 className="text-lg font-bold text-foreground mb-2">
               {activeTab === "stores" ? "No products imported" : "No resources yet"}
@@ -427,13 +427,13 @@ export default function ResourcesPage() {
             </p>
             {activeTab === "stores" ? (
               <Link href="/dashboard/stores">
-                <button className="px-4 py-2 rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 transition-colors shadow-lg shadow-primary/10 font-bold">
+                <button className="px-4 py-2 rounded-xl bg-sp-gold text-white hover:bg-sp-gold/90 transition-colors shadow-lg shadow-sp-gold/10 font-bold">
                   Go to Stores
                 </button>
               </Link>
             ) : (
               <Link href="/dashboard/resources/new">
-                <button className="px-4 py-2 rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 transition-colors shadow-lg shadow-primary/10 font-bold">
+                <button className="px-4 py-2 rounded-xl bg-sp-gold text-white hover:bg-sp-gold/90 transition-colors shadow-lg shadow-sp-gold/10 font-bold">
                   Create Resource
                 </button>
               </Link>
@@ -447,11 +447,11 @@ export default function ResourcesPage() {
             filteredProducts.map((product) => (
               <div
                 key={product._id}
-                className="bg-card border border-border hover:border-primary/30 transition-all rounded-2xl p-4 group"
+                className="bg-card border border-border hover:border-sp-gold/30 transition-all rounded-2xl p-4 group"
               >
                 <div className="flex items-start gap-4">
                     {/* Product Image */}
-                    <div className="h-16 w-16 rounded-xl overflow-hidden bg-primary/10 flex-shrink-0">
+                    <div className="h-16 w-16 rounded-xl overflow-hidden bg-sp-gold/10 flex-shrink-0">
                       {product.image ? (
                         <Image
                           src={product.image}
@@ -462,7 +462,7 @@ export default function ResourcesPage() {
                         />
                       ) : (
                         <div className="h-full w-full flex items-center justify-center">
-                          <Package className="h-6 w-6 text-primary" />
+                          <Package className="h-6 w-6 text-sp-gold" />
                         </div>
                       )}
                     </div>
@@ -471,7 +471,7 @@ export default function ResourcesPage() {
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-1">
                         <h3 className="font-bold text-foreground truncate">{product.name}</h3>
-                        <span className="px-2 py-0.5 text-xs rounded-full bg-primary/10 text-primary">
+                        <span className="px-2 py-0.5 text-xs rounded-full bg-sp-gold/10 text-sp-gold">
                           {product.storeName}
                         </span>
                       </div>
@@ -481,7 +481,7 @@ export default function ResourcesPage() {
                         </p>
                       )}
                       <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                        <span className="flex items-center gap-1 text-primary font-medium">
+                        <span className="flex items-center gap-1 text-sp-gold font-medium">
                           <DollarSign className="h-3 w-3" />
                           {parseFloat(product.price).toFixed(2)} {product.currency}
                         </span>
@@ -510,7 +510,7 @@ export default function ResourcesPage() {
                             href={`https://${store.shopDomain}/admin/products/${productId}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="p-2 rounded-lg text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
+                            className="p-2 rounded-lg text-muted-foreground hover:text-sp-gold hover:bg-sp-gold/10 transition-colors"
                             title="Edit in Shopify Admin"
                           >
                             <Pencil className="h-4 w-4" />
@@ -525,7 +525,7 @@ export default function ResourcesPage() {
                             href={`https://${store.shopDomain}/products/${product.metadata.handle}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="p-2 rounded-lg text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
+                            className="p-2 rounded-lg text-muted-foreground hover:text-sp-gold hover:bg-sp-gold/10 transition-colors"
                             title="View on Shopify store"
                           >
                             <ExternalLink className="h-4 w-4" />
@@ -539,11 +539,11 @@ export default function ResourcesPage() {
                           setCopiedId(product._id);
                           setTimeout(() => setCopiedId(null), 2000);
                         }}
-                        className="p-2 rounded-lg text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
+                        className="p-2 rounded-lg text-muted-foreground hover:text-sp-gold hover:bg-sp-gold/10 transition-colors"
                         title="Copy checkout link"
                       >
                         {copiedId === product._id ? (
-                          <Check className="h-4 w-4 text-primary" />
+                          <Check className="h-4 w-4 text-sp-gold" />
                         ) : (
                           <Copy className="h-4 w-4" />
                         )}
@@ -567,11 +567,11 @@ export default function ResourcesPage() {
               return (
                 <div
                   key={resource.id}
-                  className="bg-card border border-border hover:border-primary/30 transition-all rounded-2xl p-4 group"
+                  className="bg-card border border-border hover:border-sp-gold/30 transition-all rounded-2xl p-4 group"
                 >
                   <div className="flex items-start gap-4">
                     {/* Type Icon */}
-                    <div className="h-10 w-10 rounded-xl flex items-center justify-center bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    <div className="h-10 w-10 rounded-xl flex items-center justify-center bg-sp-gold/10 text-sp-gold group-hover:bg-sp-gold group-hover:text-white transition-colors">
                       <Icon className="h-5 w-5" />
                     </div>
 
@@ -593,11 +593,11 @@ export default function ResourcesPage() {
                         <div className="flex items-center gap-4 text-xs text-muted-foreground">
                           <span className="capitalize">{resource.type}</span>
                           <span>•</span>
-                          <span className="text-primary font-medium">{formatCurrency(resource.priceUsdc)}</span>
+                          <span className="text-sp-gold font-medium">{formatCurrency(resource.priceUsdc)}</span>
                           <span>•</span>
                           <span>{resource.accessCount || 0} accesses</span>
                           <span>•</span>
-                          <span className="text-primary font-medium">{formatCurrency(resource.totalEarnings || 0)} earned</span>
+                          <span className="text-sp-gold font-medium">{formatCurrency(resource.totalEarnings || 0)} earned</span>
                         </div>
                       </div>
 
@@ -605,18 +605,18 @@ export default function ResourcesPage() {
                       <div className="flex items-center gap-2">
                         <button
                           onClick={() => handlePreview(resource)}
-                          className="p-2 rounded-lg text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
+                          className="p-2 rounded-lg text-muted-foreground hover:text-sp-gold hover:bg-sp-gold/10 transition-colors"
                           title="Preview"
                         >
                           <Eye className="h-4 w-4" />
                         </button>
                         <button
                           onClick={() => copyEndpoint(resource)}
-                          className="p-2 rounded-lg text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
+                          className="p-2 rounded-lg text-muted-foreground hover:text-sp-gold hover:bg-sp-gold/10 transition-colors"
                           title="Copy endpoint"
                         >
                           {copiedId === resource.id ? (
-                            <Check className="h-4 w-4 text-primary" />
+                            <Check className="h-4 w-4 text-sp-gold" />
                           ) : (
                             <Copy className="h-4 w-4" />
                           )}
@@ -625,14 +625,14 @@ export default function ResourcesPage() {
                           href={`${API_URL}/x402/resource/${resource.slug || resource.id}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-2 rounded-lg text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
+                          className="p-2 rounded-lg text-muted-foreground hover:text-sp-gold hover:bg-sp-gold/10 transition-colors"
                           title="Open in new tab"
                         >
                           <ExternalLink className="h-4 w-4" />
                         </a>
                         <DropdownMenu>
                           <DropdownMenuTrigger asChild>
-                            <button className="p-2 rounded-lg text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors">
+                            <button className="p-2 rounded-lg text-muted-foreground hover:text-sp-gold hover:bg-sp-gold/10 transition-colors">
                               <MoreVertical className="h-4 w-4" />
                             </button>
                           </DropdownMenuTrigger>
@@ -640,7 +640,7 @@ export default function ResourcesPage() {
                             <DropdownMenuItem asChild>
                               <Link
                                 href={`/dashboard/resources/${resource.id}/edit`}
-                                className="flex items-center gap-2 text-foreground hover:text-primary"
+                                className="flex items-center gap-2 text-foreground hover:text-sp-gold"
                               >
                                 <Pencil className="h-4 w-4" />
                                 Edit
@@ -689,7 +689,7 @@ export default function ResourcesPage() {
 
           {loadingPreview ? (
             <div className="flex items-center justify-center py-12">
-              <Loader2 className="h-8 w-8 animate-spin text-primary" />
+              <Loader2 className="h-8 w-8 animate-spin text-sp-gold" />
             </div>
           ) : previewData ? (
             <div className="space-y-6">
@@ -715,7 +715,7 @@ export default function ResourcesPage() {
                           href={previewData.store.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-sm text-primary hover:underline flex items-center gap-1"
+                          className="text-sm text-sp-gold hover:underline flex items-center gap-1"
                         >
                           {previewData.store.url}
                           <ExternalLink className="h-3 w-3" />
@@ -795,7 +795,7 @@ export default function ResourcesPage() {
                               </div>
                             </div>
                             <div className="text-right">
-                              <div className="text-sm font-medium text-primary">
+                              <div className="text-sm font-medium text-sp-gold">
                                 {formatCurrency(parseFloat(order.total_amount))}
                               </div>
                               <div className="text-xs text-muted-foreground capitalize">{order.status}</div>

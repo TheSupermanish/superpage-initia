@@ -54,21 +54,21 @@ const resourceTypes: ResourceTypeOption[] = [
     title: "API Proxy",
     description: "Monetize any API endpoint with pay-per-call",
     icon: Code,
-    color: "text-primary border-primary/30 bg-primary/10",
+    color: "text-sp-gold border-sp-gold/30 bg-sp-gold/10",
   },
   {
     type: "file",
     title: "File / Download",
     description: "Upload files or link to external URLs",
     icon: FileDown,
-    color: "text-primary border-primary/30 bg-primary/10",
+    color: "text-sp-gold border-sp-gold/30 bg-sp-gold/10",
   },
   {
     type: "article",
     title: "Blog / Content",
     description: "Paywall blogs, RSS feeds, or write content",
     icon: Rss,
-    color: "text-primary border-primary/30 bg-primary/10",
+    color: "text-sp-gold border-sp-gold/30 bg-sp-gold/10",
   },
 ];
 
@@ -192,17 +192,17 @@ export default function NewResourcePage() {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full space-y-6">
       {/* Back button */}
       <Link
         href="/dashboard/resources"
-        className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary mb-6 transition-colors"
+        className="inline-flex items-center gap-2 text-muted-foreground hover:text-sp-gold transition-colors"
       >
         <ArrowLeft className="h-4 w-4" />
         Back to Resources
       </Link>
 
-      <h1 className="text-2xl md:text-3xl font-bold text-foreground mb-6">Create New Resource</h1>
+      <h1 className="text-2xl md:text-3xl font-bold text-foreground">Create New Resource</h1>
 
       {/* Step 1: Select Type */}
       {step === "type" && (
@@ -211,7 +211,7 @@ export default function NewResourcePage() {
             <button
               key={option.type}
               onClick={() => handleSelectType(option.type)}
-              className={`p-6 rounded-2xl border text-left transition-all hover:scale-[1.02] hover:border-primary hover:shadow-lg hover:shadow-primary/10 ${option.color}`}
+              className={`p-6 rounded-2xl border text-left transition-all hover:scale-[1.02] hover:border-sp-gold hover:shadow-lg hover:shadow-sp-gold/10 ${option.color}`}
             >
               <option.icon className="h-8 w-8 mb-3" />
               <h3 className="font-bold text-foreground mb-1">{option.title}</h3>
@@ -222,12 +222,12 @@ export default function NewResourcePage() {
           {/* Shopify Store Option */}
           <Link
             href="/dashboard/stores"
-            className="p-6 rounded-2xl border border-primary/30 bg-primary/10 text-left transition-all hover:scale-[1.02] hover:border-primary hover:shadow-lg hover:shadow-primary/10 group"
+            className="p-6 rounded-2xl border border-sp-gold/30 bg-sp-gold/10 text-left transition-all hover:scale-[1.02] hover:border-sp-gold hover:shadow-lg hover:shadow-sp-gold/10 group"
           >
-            <ShoppingBag className="h-8 w-8 mb-3 text-primary group-hover:scale-110 transition-transform" />
+            <ShoppingBag className="h-8 w-8 mb-3 text-sp-gold group-hover:scale-110 transition-transform" />
             <h3 className="font-bold text-foreground mb-1">Shopify Store</h3>
             <p className="text-sm text-muted-foreground">Connect and monetize your Shopify products</p>
-            <div className="mt-3 flex items-center gap-1 text-primary text-xs font-medium">
+            <div className="mt-3 flex items-center gap-1 text-sp-gold text-xs font-medium">
               <span>Go to Stores</span>
               <ArrowLeft className="h-3 w-3 rotate-180" />
             </div>
@@ -242,7 +242,7 @@ export default function NewResourcePage() {
             <div className="flex items-center gap-3">
               <button
                 onClick={() => setStep("type")}
-                className="p-2 rounded-lg text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
+                className="p-2 rounded-lg text-muted-foreground hover:text-sp-gold hover:bg-sp-gold/10 transition-colors"
               >
                 <ArrowLeft className="h-5 w-5" />
               </button>
@@ -266,7 +266,7 @@ export default function NewResourcePage() {
                     onChange={(e) => setName(e.target.value)}
                     placeholder="My Premium API"
                     required
-                    className="bg-muted border-border text-foreground focus:border-primary"
+                    className="bg-muted border-border text-foreground focus:border-sp-gold"
                   />
                 </div>
 
@@ -277,7 +277,7 @@ export default function NewResourcePage() {
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                     placeholder="What does this resource provide?"
-                    className="bg-muted border-border text-foreground focus:border-primary"
+                    className="bg-muted border-border text-foreground focus:border-sp-gold"
                     rows={3}
                   />
                 </div>
@@ -294,7 +294,7 @@ export default function NewResourcePage() {
                     value={priceUsdc}
                     onChange={(e) => setPriceUsdc(e.target.value)}
                     required
-                    className="bg-muted border-border text-foreground focus:border-primary"
+                    className="bg-muted border-border text-foreground focus:border-sp-gold"
                   />
                   <p className="text-xs text-muted-foreground mt-1">
                     Price per access in {getCurrencyDisplay()}
@@ -315,7 +315,7 @@ export default function NewResourcePage() {
                       onChange={(e) => setUpstreamUrl(e.target.value)}
                       placeholder="https://api.example.com/endpoint"
                       required
-                      className="bg-muted border-border text-foreground focus:border-primary"
+                      className="bg-muted border-border text-foreground focus:border-sp-gold"
                     />
                     <p className="text-xs text-muted-foreground mt-1">
                       Requests will be proxied to this URL after payment
@@ -327,7 +327,7 @@ export default function NewResourcePage() {
                       id="method"
                       value={method}
                       onChange={(e) => setMethod(e.target.value)}
-                      className="w-full px-3 py-2 rounded-xl bg-muted border border-border text-foreground focus:border-primary focus:outline-none"
+                      className="w-full px-3 py-2 rounded-xl bg-muted border border-border text-foreground focus:border-sp-gold focus:outline-none"
                     >
                       <option value="GET">GET</option>
                       <option value="POST">POST</option>
@@ -349,8 +349,8 @@ export default function NewResourcePage() {
                       onClick={() => setFileMode("upload")}
                       className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-xl border transition-all font-medium ${
                         fileMode === "upload"
-                          ? "border-primary bg-primary/10 text-primary"
-                          : "border-border text-muted-foreground hover:border-primary/30 hover:text-primary"
+                          ? "border-sp-gold bg-sp-gold/10 text-sp-gold"
+                          : "border-border text-muted-foreground hover:border-sp-gold/30 hover:text-sp-gold"
                       }`}
                     >
                       <Upload className="h-4 w-4" />
@@ -361,8 +361,8 @@ export default function NewResourcePage() {
                       onClick={() => setFileMode("link")}
                       className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-xl border transition-all font-medium ${
                         fileMode === "link"
-                          ? "border-primary bg-primary/10 text-primary"
-                          : "border-border text-muted-foreground hover:border-primary/30 hover:text-primary"
+                          ? "border-sp-gold bg-sp-gold/10 text-sp-gold"
+                          : "border-border text-muted-foreground hover:border-sp-gold/30 hover:text-sp-gold"
                       }`}
                     >
                       <LinkIcon className="h-4 w-4" />
@@ -374,11 +374,11 @@ export default function NewResourcePage() {
                     <div>
                       <Label className="text-foreground">File</Label>
                       <div className="mt-2">
-                        <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-border border-dashed rounded-xl cursor-pointer bg-muted hover:bg-muted/80 hover:border-primary/30 transition-all">
+                        <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-border border-dashed rounded-xl cursor-pointer bg-muted hover:bg-muted/80 hover:border-sp-gold/30 transition-all">
                           <div className="flex flex-col items-center justify-center pt-5 pb-6">
                             {file ? (
                               <>
-                                <CheckCircle className="h-8 w-8 text-primary mb-2" />
+                                <CheckCircle className="h-8 w-8 text-sp-gold mb-2" />
                                 <p className="text-sm text-foreground">{file.name}</p>
                                 <p className="text-xs text-muted-foreground">
                                   {(file.size / 1024 / 1024).toFixed(2)} MB
@@ -413,7 +413,7 @@ export default function NewResourcePage() {
                           onChange={(e) => setFileUrl(e.target.value)}
                           placeholder="https://example.com/files/document.pdf"
                           required
-                          className="bg-muted border-border text-foreground focus:border-primary"
+                          className="bg-muted border-border text-foreground focus:border-sp-gold"
                         />
                         <p className="text-xs text-muted-foreground mt-1">
                           S3, Dropbox, Google Drive, or any direct download URL
@@ -426,7 +426,7 @@ export default function NewResourcePage() {
                           value={fileName}
                           onChange={(e) => setFileName(e.target.value)}
                           placeholder="my-document.pdf"
-                          className="bg-muted border-border text-foreground focus:border-primary"
+                          className="bg-muted border-border text-foreground focus:border-sp-gold"
                         />
                       </div>
                     </div>
@@ -445,8 +445,8 @@ export default function NewResourcePage() {
                       onClick={() => setContentMode("url")}
                       className={`flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-xl border text-sm transition-all font-medium ${
                         contentMode === "url"
-                          ? "border-primary bg-primary/10 text-primary"
-                          : "border-border text-muted-foreground hover:border-primary/30 hover:text-primary"
+                          ? "border-sp-gold bg-sp-gold/10 text-sp-gold"
+                          : "border-border text-muted-foreground hover:border-sp-gold/30 hover:text-sp-gold"
                       }`}
                     >
                       <Globe className="h-4 w-4" />
@@ -457,8 +457,8 @@ export default function NewResourcePage() {
                       onClick={() => setContentMode("sitemap")}
                       className={`flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-xl border text-sm transition-all font-medium ${
                         contentMode === "sitemap"
-                          ? "border-primary bg-primary/10 text-primary"
-                          : "border-border text-muted-foreground hover:border-primary/30 hover:text-primary"
+                          ? "border-sp-gold bg-sp-gold/10 text-sp-gold"
+                          : "border-border text-muted-foreground hover:border-sp-gold/30 hover:text-sp-gold"
                       }`}
                     >
                       <Rss className="h-4 w-4" />
@@ -469,8 +469,8 @@ export default function NewResourcePage() {
                       onClick={() => setContentMode("write")}
                       className={`flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-xl border text-sm transition-all font-medium ${
                         contentMode === "write"
-                          ? "border-primary bg-primary/10 text-primary"
-                          : "border-border text-muted-foreground hover:border-primary/30 hover:text-primary"
+                          ? "border-sp-gold bg-sp-gold/10 text-sp-gold"
+                          : "border-border text-muted-foreground hover:border-sp-gold/30 hover:text-sp-gold"
                       }`}
                     >
                       <FileText className="h-4 w-4" />
@@ -488,7 +488,7 @@ export default function NewResourcePage() {
                         onChange={(e) => setBlogUrl(e.target.value)}
                         placeholder="https://yourblog.com/premium-post"
                         required
-                        className="bg-muted border-border text-foreground focus:border-primary"
+                        className="bg-muted border-border text-foreground focus:border-sp-gold"
                       />
                       <p className="text-xs text-muted-foreground mt-1">
                         Paywall access to a specific blog post or article
@@ -506,7 +506,7 @@ export default function NewResourcePage() {
                         onChange={(e) => setBlogUrl(e.target.value)}
                         placeholder="https://yourblog.com/feed.xml"
                         required
-                        className="bg-muted border-border text-foreground focus:border-primary"
+                        className="bg-muted border-border text-foreground focus:border-sp-gold"
                       />
                       <p className="text-xs text-muted-foreground mt-1">
                         Paywall your entire blog feed or sitemap
@@ -546,7 +546,7 @@ export default function NewResourcePage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="bg-primary hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed text-primary-foreground px-6 py-3 rounded-xl font-bold transition-colors shadow-lg shadow-primary/10 flex items-center gap-2"
+                  className="bg-sp-gold hover:bg-sp-gold/90 disabled:opacity-50 disabled:cursor-not-allowed text-white px-6 py-3 rounded-xl font-bold transition-colors shadow-lg shadow-sp-gold/10 flex items-center gap-2"
                 >
                   {loading ? (
                     <>
