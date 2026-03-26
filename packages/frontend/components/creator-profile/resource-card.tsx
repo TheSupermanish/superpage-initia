@@ -30,10 +30,10 @@ const resourceIcons = {
 };
 
 const resourceColors = {
-  api: "text-violet-400 bg-violet-500/10 border-violet-500/20",
-  file: "text-blue-400 bg-blue-500/10 border-blue-500/20",
-  article: "text-amber-400 bg-amber-500/10 border-amber-500/20",
-  shopify: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
+  api: "text-sp-blue bg-sp-blue/10 border-sp-blue/20",
+  file: "text-sp-gold bg-sp-gold/10 border-sp-gold/20",
+  article: "text-sp-coral bg-sp-coral/10 border-sp-coral/20",
+  shopify: "text-sp-pink bg-sp-pink/10 border-sp-pink/20",
 };
 
 export function ResourceCard({ resource, onAccess }: ResourceCardProps) {

@@ -74,10 +74,10 @@ interface PurchaseModalProps {
 // ── Helpers ─────────────────────────────────────────
 
 const TYPE_CONFIG: Record<string, { icon: typeof Code; color: string; label: string }> = {
-  api: { icon: Code, color: "text-violet-400 bg-violet-500/15", label: "API" },
-  file: { icon: FileText, color: "text-blue-400 bg-blue-500/15", label: "File" },
-  article: { icon: Globe, color: "text-amber-400 bg-amber-500/15", label: "Article" },
-  shopify: { icon: ShoppingBag, color: "text-emerald-400 bg-emerald-500/15", label: "Store" },
+  api: { icon: Code, color: "text-sp-blue bg-sp-blue/15", label: "API" },
+  file: { icon: FileText, color: "text-sp-gold bg-sp-gold/15", label: "File" },
+  article: { icon: Globe, color: "text-sp-coral bg-sp-coral/15", label: "Article" },
+  shopify: { icon: ShoppingBag, color: "text-sp-pink bg-sp-pink/15", label: "Store" },
 };
 
 const STATUS_LABELS: Record<PaymentStatus, string> = {

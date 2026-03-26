@@ -128,7 +128,7 @@ export default function OnboardingPage() {
           {/* Header */}
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold mb-3 text-foreground">
-              Welcome to x402!
+              Welcome to SuperPage!
             </h1>
             <p className="text-muted-foreground text-base">
               Let's set up your public profile so others can discover and purchase from you
@@ -249,7 +249,7 @@ export default function OnboardingPage() {
         {/* Footer decoration */}
         <div className="mt-6 flex items-center justify-center gap-2 text-muted-foreground text-xs">
           <div className="size-1.5 rounded-full bg-primary/50" />
-          <span>Powered by x402</span>
+          <span>Powered by SuperPage</span>
           <div className="size-1.5 rounded-full bg-primary/50" />
         </div>
       </div>

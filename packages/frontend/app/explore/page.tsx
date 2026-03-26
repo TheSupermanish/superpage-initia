@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Search, Filter, Star, TrendingUp, Users } from "lucide-react";
 import { PublicNavbar } from "@/components/public-navbar";
 import { getCurrencyDisplay } from "@/lib/chain-config";
@@ -64,11 +65,11 @@ const typeIcons: Record<string, string> = {
   shopify: "shopping_bag",
 };
 
-const typeColors: Record<string, { bg: string; text: string; border: string }> = {
-  api: { bg: "from-violet-500/20 to-violet-300/20", text: "text-violet-500", border: "border-violet-500/40" },
-  file: { bg: "from-blue-500/20 to-blue-300/20", text: "text-blue-500", border: "border-blue-500/40" },
-  article: { bg: "from-amber-500/20 to-amber-300/20", text: "text-amber-500", border: "border-amber-500/40" },
-  shopify: { bg: "from-emerald-500/20 to-emerald-300/20", text: "text-emerald-500", border: "border-emerald-500/40" },
+const typeColors: Record<string, { bg: string; text: string; border: string; btn: string; btnHover: string; shadow: string }> = {
+  api: { bg: "from-sp-blue/20 to-sp-blue/10", text: "text-sp-blue", border: "border-sp-blue/40", btn: "bg-sp-blue", btnHover: "hover:bg-sp-blue/90", shadow: "shadow-sp-blue/10" },
+  file: { bg: "from-sp-gold/20 to-sp-gold/10", text: "text-sp-gold", border: "border-sp-gold/40", btn: "bg-sp-gold", btnHover: "hover:bg-sp-gold/90", shadow: "shadow-sp-gold/10" },
+  article: { bg: "from-sp-coral/20 to-sp-coral/10", text: "text-sp-coral", border: "border-sp-coral/40", btn: "bg-sp-coral", btnHover: "hover:bg-sp-coral/90", shadow: "shadow-sp-coral/10" },
+  shopify: { bg: "from-sp-pink/20 to-sp-pink/10", text: "text-sp-pink", border: "border-sp-pink/40", btn: "bg-sp-pink", btnHover: "hover:bg-sp-pink/90", shadow: "shadow-sp-pink/10" },
 };
 
 export default function ExplorePage() {
@@ -191,19 +192,19 @@ export default function ExplorePage() {
 
             {/* Search Bar */}
             <div className="relative w-full group">
-              <Search className="absolute left-5 top-1/2 -translate-y-1/2 text-muted-foreground group-focus-within:text-primary transition-colors" size={20} />
+              <Search className="absolute left-5 top-1/2 -translate-y-1/2 text-muted-foreground group-focus-within:text-sp-pink transition-colors" size={20} />
               <input
                 type="text"
                 placeholder="Search resources, creators, or stores..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full bg-card border border-border focus:border-primary focus:ring-4 focus:ring-primary/10 rounded-2xl py-5 pl-14 pr-32 text-base font-medium transition-all shadow-sm outline-none"
+                className="w-full bg-card border border-border focus:border-sp-pink focus:ring-4 focus:ring-sp-pink/10 rounded-2xl py-5 pl-14 pr-32 text-base font-medium transition-all shadow-sm outline-none"
               />
               <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-3">
                 <kbd className="hidden md:inline-flex items-center px-2 py-1 rounded border border-border text-[10px] text-muted-foreground font-mono bg-muted">
                   cmd K
                 </kbd>
-                <button className="bg-primary text-primary-foreground p-2.5 rounded-xl hover:bg-primary/90 transition-all">
+                <button className="bg-sp-pink text-white p-2.5 rounded-xl hover:bg-sp-pink/90 transition-all">
                   <Filter size={20} />
                 </button>
               </div>
@@ -222,12 +223,12 @@ export default function ExplorePage() {
                   {search ? `Creators matching "${search}"` : "Featured Creators"}
                 </h2>
                 <p className="text-sm text-muted-foreground">
-                  {search ? `${filteredCreators.length} creator(s) found` : "The most influential builders in the x402 ecosystem"}
+                  {search ? `${filteredCreators.length} creator(s) found` : "The most influential builders in the SuperPage ecosystem"}
                 </p>
               </div>
               <Link
                 href="/creators"
-                className="text-primary text-sm font-bold flex items-center gap-1 hover:underline"
+                className="text-sp-pink text-sm font-bold flex items-center gap-1 hover:underline"
               >
                 View all
                 <span className="material-symbols-outlined text-[18px]">chevron_right</span>
@@ -239,11 +240,11 @@ export default function ExplorePage() {
                 <Link
                   key={creator.id}
                   href={creator.username ? `/${creator.username}` : `/creators/${creator.id}`}
-                  className="flex-none w-56 bg-card rounded-3xl p-6 border border-border flex flex-col items-center text-center gap-4 group hover:border-primary hover:shadow-xl hover:shadow-primary/5 transition-all"
+                  className="flex-none w-56 bg-card rounded-3xl p-6 border border-border flex flex-col items-center text-center gap-4 group hover:border-sp-pink hover:shadow-xl hover:shadow-sp-pink/5 transition-all"
                 >
                   <div className="relative">
                     <div
-                      className="size-24 rounded-full bg-cover bg-center ring-4 ring-primary/10"
+                      className="size-24 rounded-full bg-cover bg-center ring-4 ring-sp-pink/10"
                       style={{
                         backgroundImage: creator.avatarUrl
                           ? `url(${creator.avatarUrl})`
@@ -262,7 +263,7 @@ export default function ExplorePage() {
                   <div className="w-full pt-2 border-t border-border flex justify-between text-xs">
                     <div className="flex flex-col items-start">
                       <span className="text-muted-foreground">Resources</span>
-                      <span className="text-primary font-bold">{creator.resourceCount}</span>
+                      <span className="text-sp-pink font-bold">{creator.resourceCount}</span>
                     </div>
                     <div className="flex flex-col items-end">
                       <span className="text-muted-foreground">Sales</span>
@@ -291,8 +292,8 @@ export default function ExplorePage() {
                 onClick={() => setTypeFilter("all")}
                 className={`px-6 py-2 text-xs font-bold rounded-xl transition-all whitespace-nowrap ${
                   typeFilter === "all"
-                    ? "bg-primary text-primary-foreground shadow-sm"
-                    : "text-muted-foreground hover:text-primary"
+                    ? "bg-sp-pink text-white shadow-sm"
+                    : "text-muted-foreground hover:text-sp-pink"
                 }`}
               >
                 All
@@ -303,8 +304,8 @@ export default function ExplorePage() {
                   onClick={() => setTypeFilter(type)}
                   className={`px-6 py-2 text-xs font-medium rounded-xl transition-all capitalize whitespace-nowrap ${
                     typeFilter === type
-                      ? "bg-primary text-primary-foreground shadow-sm"
-                      : "text-muted-foreground hover:text-primary"
+                      ? "bg-sp-pink text-white shadow-sm"
+                      : "text-muted-foreground hover:text-sp-pink"
                   }`}
                 >
                   {type}
@@ -316,7 +317,7 @@ export default function ExplorePage() {
           {/* Resources Grid */}
           {loading ? (
             <div className="flex items-center justify-center py-20">
-              <div className="animate-spin rounded-full h-8 w-8 border-2 border-primary border-t-transparent" />
+              <div className="animate-spin rounded-full h-8 w-8 border-2 border-sp-pink border-t-transparent" />
             </div>
           ) : filteredResources.length === 0 ? (
             <div className="bg-card rounded-3xl border border-border p-16 text-center">
@@ -337,7 +338,7 @@ export default function ExplorePage() {
                 return (
                   <div
                     key={resource.id}
-                    className={`group bg-card rounded-3xl border border-border overflow-hidden flex flex-col hover:${colors.border} hover:shadow-2xl hover:shadow-primary/5 transition-all`}
+                    className={`group bg-card rounded-3xl border border-border overflow-hidden flex flex-col hover:${colors.border} hover:shadow-2xl hover:shadow-sp-pink/5 transition-all`}
                   >
                     <div
                       className={`h-40 bg-gradient-to-br ${colors.bg} p-6 flex items-center justify-center relative`}
@@ -346,7 +347,7 @@ export default function ExplorePage() {
                         {icon}
                       </span>
                       {resource.accessCount > 50 && (
-                        <div className="absolute top-5 right-5 bg-primary/20 backdrop-blur text-primary text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest border border-primary/20">
+                        <div className="absolute top-5 right-5 bg-sp-pink/20 backdrop-blur text-sp-pink text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest border border-sp-pink/20">
                           Trending
                         </div>
                       )}
@@ -365,7 +366,7 @@ export default function ExplorePage() {
                           <span className="text-[10px] uppercase text-muted-foreground font-bold tracking-wider">
                             Price
                           </span>
-                          <span className="text-primary font-bold text-2xl">
+                          <span className={`${colors.text} font-bold text-2xl`}>
                             {formatPrice(resource.priceUsdc)}
                           </span>
                         </div>
@@ -402,7 +403,7 @@ export default function ExplorePage() {
                             });
                             setPurchaseOpen(true);
                           }}
-                          className="flex-1 bg-primary text-primary-foreground font-bold py-3.5 rounded-2xl text-sm hover:bg-primary/90 transition-all shadow-lg shadow-primary/10 text-center"
+                          className={`flex-1 ${colors.btn} text-white font-bold py-3.5 rounded-2xl text-sm ${colors.btnHover} transition-all shadow-lg ${colors.shadow} text-center`}
                         >
                           Buy Access
                         </button>
@@ -433,9 +434,9 @@ export default function ExplorePage() {
               {filteredProducts.slice(0, 6).map((product) => (
                 <div
                   key={product.id}
-                  className="group bg-card rounded-3xl border border-border overflow-hidden flex flex-col hover:border-emerald-500/40 hover:shadow-2xl hover:shadow-emerald-500/5 transition-all"
+                  className="group bg-card rounded-3xl border border-border overflow-hidden flex flex-col hover:border-sp-pink/40 hover:shadow-2xl hover:shadow-sp-pink/5 transition-all"
                 >
-                  <div className="h-40 bg-gradient-to-br from-emerald-500/20 to-emerald-300/20 p-6 flex items-center justify-center relative overflow-hidden">
+                  <div className="h-40 bg-gradient-to-br from-sp-pink/20 to-sp-pink/10 p-6 flex items-center justify-center relative overflow-hidden">
                     {product.image ? (
                       <img
                         src={product.image}
@@ -443,7 +444,7 @@ export default function ExplorePage() {
                         className="w-full h-full object-cover absolute inset-0"
                       />
                     ) : (
-                      <span className="material-symbols-outlined text-emerald-500 text-6xl">
+                      <span className="material-symbols-outlined text-sp-pink text-6xl">
                         shopping_bag
                       </span>
                     )}
@@ -462,7 +463,7 @@ export default function ExplorePage() {
                         <span className="text-[10px] uppercase text-muted-foreground font-bold tracking-wider">
                           Price
                         </span>
-                        <span className="text-emerald-500 font-bold text-2xl">
+                        <span className="text-sp-pink font-bold text-2xl">
                           ${parseFloat(product.price).toFixed(2)} {getCurrencyDisplay()}
                         </span>
                       </div>
@@ -496,7 +497,7 @@ export default function ExplorePage() {
                           });
                           setPurchaseOpen(true);
                         }}
-                        className="flex-1 bg-emerald-500 text-primary-foreground font-bold py-3.5 rounded-2xl text-sm hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-500/10"
+                        className="flex-1 bg-sp-pink text-white font-bold py-3.5 rounded-2xl text-sm hover:bg-sp-pink/90 transition-all shadow-lg shadow-sp-pink/10"
                       >
                         Buy Product
                       </button>
@@ -526,11 +527,11 @@ export default function ExplorePage() {
               {filteredStores.slice(0, 6).map((store) => (
                 <div
                   key={store.id}
-                  className="bg-card rounded-2xl border border-border p-6 hover:border-primary hover:shadow-xl hover:shadow-primary/5 transition-all"
+                  className="bg-card rounded-2xl border border-border p-6 hover:border-sp-pink hover:shadow-xl hover:shadow-sp-pink/5 transition-all"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="size-12 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl flex items-center justify-center">
-                      <span className="material-symbols-outlined text-primary text-2xl">
+                    <div className="size-12 bg-gradient-to-br from-sp-pink/20 to-sp-pink/10 rounded-xl flex items-center justify-center">
+                      <span className="material-symbols-outlined text-sp-pink text-2xl">
                         storefront
                       </span>
                     </div>

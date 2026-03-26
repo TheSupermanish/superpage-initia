@@ -44,11 +44,11 @@ export default function OAuthCallback() {
   }, [searchParams, router]);
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-emerald-50 via-green-50 to-emerald-100 flex items-center justify-center">
+    <div className="min-h-screen w-full bg-gradient-to-br from-sp-blue/10 via-sp-pink/5 to-sp-gold/10 flex items-center justify-center">
       <div className="text-center space-y-6 p-8">
         {status === "loading" && (
           <>
-            <Loader2 className="w-16 h-16 text-emerald-600 animate-spin mx-auto" />
+            <Loader2 className="w-16 h-16 text-sp-blue animate-spin mx-auto" />
             <h1 className="text-2xl font-semibold text-foreground">
               {message}
             </h1>

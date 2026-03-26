@@ -92,22 +92,24 @@ export default function SettingsPage() {
 
   return (
     <div className="w-full space-y-6">
-      <div>
-        <h1 className="text-2xl md:text-3xl font-bold text-foreground">Settings</h1>
-        <p className="text-muted-foreground mt-1">Manage your profile and account</p>
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-2xl md:text-3xl font-bold text-foreground">Settings</h1>
+          <p className="text-muted-foreground mt-1">Manage your profile and account</p>
+        </div>
       </div>
 
       {/* Profile Settings */}
       <div className="bg-card border border-border rounded-2xl">
         <div className="p-6 border-b border-border">
           <div className="flex items-center gap-2 mb-2">
-            <User className="h-5 w-5 text-primary" />
+            <User className="h-5 w-5 text-sp-blue" />
             <h3 className="font-bold text-lg text-foreground">Public Profile</h3>
           </div>
           <p className="text-sm text-muted-foreground">
             Your creator profile visible to others
             {username && (
-              <span className="ml-2 text-primary">
+              <span className="ml-2 text-sp-blue">
                 • View at /@{username}
               </span>
             )}
@@ -137,7 +139,7 @@ export default function SettingsPage() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Your name"
-              className="bg-muted border-border text-foreground focus:border-primary"
+              className="bg-muted border-border text-foreground focus:border-sp-blue"
             />
           </div>
 
@@ -149,7 +151,7 @@ export default function SettingsPage() {
               value={bio}
               onChange={(e) => setBio(e.target.value.slice(0, 500))}
               placeholder="Tell us about yourself (max 500 characters)"
-              className="bg-muted border-border text-foreground focus:border-primary"
+              className="bg-muted border-border text-foreground focus:border-sp-blue"
               rows={3}
             />
             <p className="text-xs text-muted-foreground mt-1">
@@ -166,7 +168,7 @@ export default function SettingsPage() {
               value={website}
               onChange={(e) => setWebsite(e.target.value)}
               placeholder="https://yourwebsite.com"
-              className="bg-muted border-border text-foreground focus:border-primary"
+              className="bg-muted border-border text-foreground focus:border-sp-blue"
             />
           </div>
 
@@ -180,7 +182,7 @@ export default function SettingsPage() {
                 value={socialLinks.twitter || ""}
                 onChange={(e) => handleSocialLinkChange("twitter", e.target.value)}
                 placeholder="https://twitter.com/username"
-                className="bg-muted border-border text-foreground focus:border-primary"
+                className="bg-muted border-border text-foreground focus:border-sp-blue"
               />
             </div>
 
@@ -190,7 +192,7 @@ export default function SettingsPage() {
                 value={socialLinks.github || ""}
                 onChange={(e) => handleSocialLinkChange("github", e.target.value)}
                 placeholder="https://github.com/username"
-                className="bg-muted border-border text-foreground focus:border-primary"
+                className="bg-muted border-border text-foreground focus:border-sp-blue"
               />
             </div>
 
@@ -200,7 +202,7 @@ export default function SettingsPage() {
                 value={socialLinks.discord || ""}
                 onChange={(e) => handleSocialLinkChange("discord", e.target.value)}
                 placeholder="Discord username or invite link"
-                className="bg-muted border-border text-foreground focus:border-primary"
+                className="bg-muted border-border text-foreground focus:border-sp-blue"
               />
             </div>
 
@@ -210,7 +212,7 @@ export default function SettingsPage() {
                 value={socialLinks.youtube || ""}
                 onChange={(e) => handleSocialLinkChange("youtube", e.target.value)}
                 placeholder="https://youtube.com/@channel"
-                className="bg-muted border-border text-foreground focus:border-primary"
+                className="bg-muted border-border text-foreground focus:border-sp-blue"
               />
             </div>
 
@@ -220,7 +222,7 @@ export default function SettingsPage() {
                 value={socialLinks.linkedin || ""}
                 onChange={(e) => handleSocialLinkChange("linkedin", e.target.value)}
                 placeholder="https://linkedin.com/in/username"
-                className="bg-muted border-border text-foreground focus:border-primary"
+                className="bg-muted border-border text-foreground focus:border-sp-blue"
               />
             </div>
 
@@ -230,7 +232,7 @@ export default function SettingsPage() {
                 value={socialLinks.instagram || ""}
                 onChange={(e) => handleSocialLinkChange("instagram", e.target.value)}
                 placeholder="https://instagram.com/username"
-                className="bg-muted border-border text-foreground focus:border-primary"
+                className="bg-muted border-border text-foreground focus:border-sp-blue"
               />
             </div>
 
@@ -240,7 +242,7 @@ export default function SettingsPage() {
                 value={socialLinks.telegram || ""}
                 onChange={(e) => handleSocialLinkChange("telegram", e.target.value)}
                 placeholder="https://t.me/username"
-                className="bg-muted border-border text-foreground focus:border-primary"
+                className="bg-muted border-border text-foreground focus:border-sp-blue"
               />
             </div>
           </div>
@@ -256,7 +258,7 @@ export default function SettingsPage() {
             <button
               onClick={() => setIsPublic(!isPublic)}
               className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                isPublic ? "bg-primary" : "bg-muted"
+                isPublic ? "bg-sp-blue" : "bg-muted"
               }`}
             >
               <span
@@ -271,7 +273,7 @@ export default function SettingsPage() {
           <button
             onClick={handleSave}
             disabled={saving}
-            className="bg-primary hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed text-white w-full rounded-xl py-3 font-bold transition-colors shadow-lg shadow-primary/20 flex items-center justify-center gap-2"
+            className="bg-sp-blue hover:bg-sp-blue/90 disabled:opacity-50 disabled:cursor-not-allowed text-white w-full rounded-xl py-3 font-bold transition-colors shadow-lg shadow-sp-blue/20 flex items-center justify-center gap-2"
           >
             {saving ? (
               <>
@@ -294,7 +296,7 @@ export default function SettingsPage() {
       <div className="bg-card border border-border rounded-2xl">
         <div className="p-6 border-b border-border">
           <div className="flex items-center gap-2 mb-2">
-            <Wallet className="h-5 w-5 text-primary" />
+            <Wallet className="h-5 w-5 text-sp-blue" />
             <h3 className="font-bold text-lg text-foreground">Wallet</h3>
           </div>
           <p className="text-sm text-muted-foreground">Your connected Ethereum wallet</p>
@@ -310,10 +312,10 @@ export default function SettingsPage() {
                 <>
                   <button
                     onClick={copyAddress}
-                    className="p-2 rounded-xl text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
+                    className="p-2 rounded-xl text-muted-foreground hover:text-sp-blue hover:bg-sp-blue/10 transition-colors"
                   >
                     {copied ? (
-                      <Check className="h-4 w-4 text-primary" />
+                      <Check className="h-4 w-4 text-sp-blue" />
                     ) : (
                       <Copy className="h-4 w-4" />
                     )}
@@ -322,7 +324,7 @@ export default function SettingsPage() {
                     href={getAddressUrl(address)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 rounded-xl text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
+                    className="p-2 rounded-xl text-muted-foreground hover:text-sp-blue hover:bg-sp-blue/10 transition-colors"
                   >
                     <ExternalLink className="h-4 w-4" />
                   </a>
@@ -340,7 +342,7 @@ export default function SettingsPage() {
               <div className={`px-3 py-1.5 rounded-full text-sm ${
                 isTestnet()
                   ? "bg-yellow-500/10 border border-yellow-500/20 text-yellow-400"
-                  : "bg-primary/10 border border-primary/20 text-primary"
+                  : "bg-sp-blue/10 border border-sp-blue/20 text-sp-blue"
               }`}>
                 {getNetwork()}
               </div>
@@ -356,7 +358,7 @@ export default function SettingsPage() {
       <div className="bg-card border border-border rounded-2xl">
         <div className="p-6 border-b border-border">
           <div className="flex items-center gap-2 mb-2">
-            <Globe className="h-5 w-5 text-primary" />
+            <Globe className="h-5 w-5 text-sp-blue" />
             <h3 className="font-bold text-lg text-foreground">API Access</h3>
           </div>
           <p className="text-sm text-muted-foreground">Integration information</p>

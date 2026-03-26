@@ -205,7 +205,7 @@ export default function ProductsPage() {
                     />
                   </div>
                   {selected.has(p.id) && (
-                    <div className="absolute right-2 top-2 z-10 text-emerald-600">
+                    <div className="absolute right-2 top-2 z-10 text-sp-blue">
                       <CheckCircle2 className="size-6 drop-shadow-sm" />
                     </div>
                   )}
@@ -247,7 +247,7 @@ export default function ProductsPage() {
                 {selectedCount} product{selectedCount === 1 ? "" : "s"} selected
               </div>
               <Button
-                className="bg-emerald-600 hover:bg-emerald-700"
+                className="bg-sp-blue hover:bg-sp-blue/90"
                 disabled={selectedCount === 0 || saving}
                 onClick={async () => {
                   setSaving(true);

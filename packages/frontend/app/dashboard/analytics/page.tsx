@@ -124,7 +124,7 @@ export default function AnalyticsPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-20">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+        <Loader2 className="h-8 w-8 animate-spin text-sp-blue" />
       </div>
     );
   }
@@ -144,8 +144,8 @@ export default function AnalyticsPage() {
               onClick={() => setPeriod(p)}
               className={`px-3 py-1 text-sm font-medium rounded-lg transition-colors ${
                 period === p
-                  ? "bg-primary text-primary-foreground shadow-lg shadow-primary/10"
-                  : "text-muted-foreground hover:text-primary hover:bg-primary/10"
+                  ? "bg-sp-blue text-white shadow-lg shadow-sp-blue/10"
+                  : "text-muted-foreground hover:text-sp-blue hover:bg-sp-blue/10"
               }`}
             >
               {p}d
@@ -156,26 +156,26 @@ export default function AnalyticsPage() {
 
       {/* Summary Cards */}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <div className="bg-card border border-border rounded-2xl p-6 hover:border-primary/30 transition-colors group">
+        <div className="bg-card border border-border rounded-2xl p-6 hover:border-sp-blue/30 transition-colors group">
           <div className="text-sm text-muted-foreground mb-1">Period Earnings</div>
-          <div className="text-3xl font-bold text-primary">
+          <div className="text-3xl font-bold text-sp-blue">
             {formatUSDC(totals.earnings)}
           </div>
           <div className="text-xs text-muted-foreground mt-1">Last {period} days</div>
         </div>
-        <div className="bg-card border border-border rounded-2xl p-6 hover:border-primary/30 transition-colors group">
+        <div className="bg-card border border-border rounded-2xl p-6 hover:border-sp-blue/30 transition-colors group">
           <div className="text-sm text-muted-foreground mb-1">Total Accesses</div>
           <div className="text-3xl font-bold text-foreground">{totals.accesses}</div>
           <div className="text-xs text-muted-foreground mt-1">Last {period} days</div>
         </div>
-        <div className="bg-card border border-border rounded-2xl p-6 hover:border-primary/30 transition-colors group">
+        <div className="bg-card border border-border rounded-2xl p-6 hover:border-sp-blue/30 transition-colors group">
           <div className="text-sm text-muted-foreground mb-1">Avg per Access</div>
           <div className="text-3xl font-bold text-foreground">
             {formatUSDC(totals.accesses ? totals.earnings / totals.accesses : 0)}
           </div>
           <div className="text-xs text-muted-foreground mt-1">{getCurrencyDisplay()} per request</div>
         </div>
-        <div className="bg-card border border-border rounded-2xl p-6 hover:border-primary/30 transition-colors group">
+        <div className="bg-card border border-border rounded-2xl p-6 hover:border-sp-blue/30 transition-colors group">
           <div className="text-sm text-muted-foreground mb-1">Daily Avg</div>
           <div className="text-3xl font-bold text-foreground">
             {formatUSDC(totals.earnings / parseInt(period))}
@@ -293,7 +293,7 @@ export default function AnalyticsPage() {
                         </p>
                       </div>
                     </div>
-                    <span className="font-medium text-primary">
+                    <span className="font-medium text-sp-blue">
                       {formatUSDC(resource.earnings)}
                     </span>
                   </div>
@@ -325,14 +325,14 @@ export default function AnalyticsPage() {
                       <p className="text-xs text-muted-foreground">{formatTime(log.timestamp)}</p>
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="font-medium text-primary">
+                      <span className="font-medium text-sp-blue">
                         {formatUSDC(log.amount)}
                       </span>
                       <a
                         href={getTxUrl(log.paymentSignature)}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-primary transition-colors"
+                        className="text-muted-foreground hover:text-sp-blue transition-colors"
                       >
                         <ArrowUpRight className="h-4 w-4" />
                       </a>

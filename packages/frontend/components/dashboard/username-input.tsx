@@ -95,7 +95,7 @@ export function UsernameInput({ value, onChange, token }: UsernameInputProps) {
         <div className="absolute right-3 top-1/2 -translate-y-1/2">
           {isChecking && <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />}
           {!isChecking && isAvailable === true && (
-            <Check className="h-4 w-4 text-emerald-400" />
+            <Check className="h-4 w-4 text-sp-blue" />
           )}
           {!isChecking && (isAvailable === false || error) && (
             <X className="h-4 w-4 text-red-400" />
@@ -104,7 +104,7 @@ export function UsernameInput({ value, onChange, token }: UsernameInputProps) {
       </div>
       {error && <p className="text-xs text-red-400">{error}</p>}
       {isAvailable && !error && (
-        <p className="text-xs text-emerald-400">Username is available!</p>
+        <p className="text-xs text-sp-blue">Username is available!</p>
       )}
       {value && (
         <p className="text-xs text-muted-foreground">
