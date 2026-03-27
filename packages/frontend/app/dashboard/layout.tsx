@@ -2,6 +2,7 @@
 
 import { ReactNode, useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useAuth } from "@/components/providers/auth-provider";
 import { WalletConnect } from "@/components/wallet-connect";
@@ -74,7 +75,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
         <div className="flex flex-col gap-8">
           {/* Logo */}
           <div className="flex items-center gap-3 px-2">
-            <img src="/logo.png" alt="SuperPage" className="h-10 w-auto" />
+            <Image src="/logo.png" alt="SuperPage" width={40} height={40} className="h-10 w-auto" />
           </div>
 
           {/* Navigation */}
@@ -134,9 +135,11 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
         {/* User Profile & Logout */}
         <div className="flex flex-col gap-4">
           <div className="p-4 rounded-xl bg-card border border-border flex items-center gap-3">
-            <img
+            <Image
               src={creator?.avatarUrl || `https://api.dicebear.com/7.x/shapes/svg?seed=${creator?.username || creator?.walletAddress || "user"}`}
               alt={creator?.username || "User"}
+              width={40}
+              height={40}
               className="w-10 h-10 rounded-full bg-muted ring-2 ring-primary/20 shrink-0 object-cover"
             />
             <div className="flex flex-col overflow-hidden flex-1">
@@ -162,7 +165,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
         {/* Mobile Header */}
         <header className="lg:hidden flex items-center justify-between p-4 bg-background sticky top-0 z-20 border-b border-border">
           <div className="flex items-center gap-2">
-            <img src="/logo.png" alt="SuperPage" className="h-8 w-auto" />
+            <Image src="/logo.png" alt="SuperPage" width={32} height={32} className="h-8 w-auto" />
           </div>
           <button
             className="p-2 rounded-lg bg-muted"
