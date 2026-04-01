@@ -311,10 +311,13 @@ async function serveApiProxy(resource: any, req: Request, res: Response) {
     const targetMethod = method || req.method;
     const url = new URL(upstream_url);
 
-    // Append query params from original request
+    // Append query params from original request (strip x402 internal params)
+    const INTERNAL_PARAMS = new Set(["wallet", "x402_chain", "x402_token", "x402_network"]);
     const originalUrl = new URL(req.url, `http://${req.headers.host}`);
     originalUrl.searchParams.forEach((value, key) => {
-      url.searchParams.set(key, value);
+      if (!INTERNAL_PARAMS.has(key.toLowerCase())) {
+        url.searchParams.set(key, value);
+      }
     });
 
     // Prepare headers
