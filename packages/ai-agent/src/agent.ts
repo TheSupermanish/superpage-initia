@@ -28,8 +28,7 @@ async function getModel(config: AgentConfig) {
       config.llmModel,
       {
         structuredOutputs: false,
-        // Disable thinking for Gemini 2.5
-        thinkingConfig: undefined,
+        thinkingConfig: { thinkingBudget: 0 },
       }
     );
   }
@@ -165,6 +164,11 @@ export async function chat(
     tools: ctx.tools,
     stopWhen: stepCountIs(ctx.config.maxSteps),
     toolChoice: "auto",
+    providerOptions: {
+      google: {
+        thinkingConfig: { thinkingBudget: 0 },
+      },
+    },
     onStepFinish: (step) => {
       try {
         const toolCalls = step?.toolCalls;
