@@ -66,8 +66,8 @@ export function getExplorerUrl(): string {
 }
 
 export function getTxUrl(txHash: string): string {
-  // Custom rollups on Initia Scan use /initpage/txs/ path
-  return `${getExplorerUrl()}/initpage/txs/${txHash}`;
+  // Custom rollups on Initia Scan use /initpage/evm-txs/ path
+  return `${getExplorerUrl()}/initpage/evm-txs/${txHash}`;
 }
 
 export function getAddressUrl(address: string): string {

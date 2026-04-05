@@ -56,9 +56,9 @@ export function getExplorerUrl(txHash) {
     'bite-v2-sandbox': `https://base-sepolia-testnet.explorer.skalenodes.com/tx/${txHash}`,
     'flow': `https://evm.flowscan.io/tx/${txHash}`,
     'flow-testnet': `https://evm-testnet.flowscan.io/tx/${txHash}`,
-    'initia-testnet': `https://scan.testnet.initia.xyz/tx/${txHash}`,
+    'initia-testnet': `https://scan.testnet.initia.xyz/initpage/evm-txs/${txHash}`,
   };
-  return explorers[NETWORK] || `https://scan.testnet.initia.xyz/tx/${txHash}`;
+  return explorers[NETWORK] || `https://scan.testnet.initia.xyz/initpage/evm-txs/${txHash}`;
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
