@@ -1,7 +1,7 @@
 {
   "project_name": "InitPage",
   "repo_url": "https://github.com/TheSupermanish/airaa",
-  "commit_sha": "3e1b7e3a0dfd064bb2361f6778dac44df0544888",
+  "commit_sha": "665ee9f9caaa9e598f5f03d80b1fe190f98cab91",
   "rollup_chain_id": "initpage",
   "deployed_address": "0x06d1a12b351cab22727515c1f4fec2544f42d751",
   "vm": "evm",
