@@ -17,7 +17,7 @@ export default function OpenClawPage() {
             OpenClaw Setup
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl">
-            OpenClaw is a skill manifest specification that lets AI agents discover and use Airaa tools automatically. Configure your SKILL.md to make your agent marketplace-ready.
+            OpenClaw is a skill manifest specification that lets AI agents discover and use InitPage tools automatically. Configure your SKILL.md to make your agent marketplace-ready.
           </p>
         </div>
       </section>
@@ -31,7 +31,7 @@ export default function OpenClawPage() {
               OpenClaw is an open specification for declaring AI agent skills. It defines what environment variables, binaries, and configuration an agent needs to function. When a platform or agent runtime reads a <code className="bg-muted px-1.5 py-0.5 rounded">SKILL.md</code> file with OpenClaw metadata, it can automatically provision the agent with the right tools and credentials.
             </p>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Airaa uses OpenClaw to declare its x402 marketplace skill, so any compatible agent framework can plug in and start buying/selling resources immediately.
+              InitPage uses OpenClaw to declare its x402 marketplace skill, so any compatible agent framework can plug in and start buying/selling resources immediately.
             </p>
           </CardContent>
         </Card>
@@ -47,13 +47,13 @@ export default function OpenClawPage() {
           </CardHeader>
           <CardContent className="space-y-4">
             <p className="text-sm text-muted-foreground">
-              Here is the complete <code className="bg-muted px-1.5 py-0.5 rounded">SKILL.md</code> for Airaa&apos;s x402 skill:
+              Here is the complete <code className="bg-muted px-1.5 py-0.5 rounded">SKILL.md</code> for InitPage&apos;s x402 skill:
             </p>
             <pre className="bg-muted p-4 rounded-lg overflow-x-auto text-sm">{`---
 name: superpage-x402
 description: >
   Discover, browse, and purchase digital resources and physical
-  products from the Airaa marketplace using x402 USDC payments
+  products from the InitPage marketplace using x402 USDC payments
   on Base
 version: 2.0.0
 metadata:
@@ -69,7 +69,7 @@ metadata:
     homepage: https://github.com/TheSupermanish/airaa
 ---
 
-# Airaa x402 — AI-Native Marketplace
+# InitPage x402 — AI-Native Marketplace
 ...`}</pre>
           </CardContent>
         </Card>
@@ -184,7 +184,7 @@ metadata:
                   <tr className="border-b border-border/50">
                     <td className="py-2 pr-4"><code className="bg-muted px-1.5 py-0.5 rounded text-primary">SUPERPAGE_SERVER</code></td>
                     <td className="py-2 pr-4">Yes</td>
-                    <td className="py-2">Airaa backend URL (e.g., <code className="bg-muted px-1 rounded">http://localhost:3001</code>)</td>
+                    <td className="py-2">InitPage backend URL (e.g., <code className="bg-muted px-1 rounded">http://localhost:3001</code>)</td>
                   </tr>
                   <tr className="border-b border-border/50">
                     <td className="py-2 pr-4"><code className="bg-muted px-1.5 py-0.5 rounded text-primary">WALLET_PRIVATE_KEY</code></td>
@@ -225,7 +225,7 @@ metadata:
           </CardHeader>
           <CardContent className="space-y-4">
             <p className="text-sm text-muted-foreground">
-              Add Airaa to your <code className="bg-muted px-1.5 py-0.5 rounded">claude_desktop_config.json</code>:
+              Add InitPage to your <code className="bg-muted px-1.5 py-0.5 rounded">claude_desktop_config.json</code>:
             </p>
             <pre className="bg-muted p-4 rounded-lg overflow-x-auto text-sm">{`{
   "mcpServers": {
@@ -253,7 +253,7 @@ metadata:
           </CardHeader>
           <CardContent className="space-y-4">
             <p className="text-sm text-muted-foreground">
-              Use the Airaa API directly from any agent framework:
+              Use the InitPage API directly from any agent framework:
             </p>
             <pre className="bg-muted p-4 rounded-lg overflow-x-auto text-sm">{`import requests
 
@@ -347,7 +347,7 @@ Description of what your agent can do...
           <CardTitle className="text-primary">Next Steps</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          <p className="text-foreground text-sm">Explore more about building with Airaa:</p>
+          <p className="text-foreground text-sm">Explore more about building with InitPage:</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Link href="/docs/skills">
               <Button variant="outline" className="w-full justify-start">

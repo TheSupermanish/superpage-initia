@@ -98,7 +98,7 @@ export default function Register() {
               </div>
               <CardTitle className="text-2xl">Connect Your Shopify Store</CardTitle>
               <CardDescription>
-                Install the Airaa app to enable AI agent commerce
+                Install the InitPage app to enable AI agent commerce
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-5">

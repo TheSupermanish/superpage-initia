@@ -1,5 +1,5 @@
 /**
- * Discovery and resource tools for Airaa x402.
+ * Discovery and resource tools for InitPage x402.
  */
 
 import {

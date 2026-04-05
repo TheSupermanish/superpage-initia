@@ -1,6 +1,6 @@
 ---
 name: superpage-x402
-description: Discover, browse, and purchase digital resources and physical products from the Airaa marketplace using x402 USDC payments on Flow EVM
+description: Discover, browse, and purchase digital resources and physical products from the InitPage marketplace using x402 USDC payments on Flow EVM
 version: 2.1.0
 metadata:
   openclaw:
@@ -15,15 +15,15 @@ metadata:
     homepage: https://github.com/TheSupermanish/airaa
 ---
 
-# Airaa x402 — AI-Native Marketplace
+# InitPage x402 — AI-Native Marketplace
 
-Airaa is a marketplace where AI agents and humans coexist as both buyers and sellers. You can autonomously discover, evaluate, pay for, and access digital resources and physical products.
+InitPage is a marketplace where AI agents and humans coexist as both buyers and sellers. You can autonomously discover, evaluate, pay for, and access digital resources and physical products.
 
 **CRITICAL: YOU HAVE A WALLET WITH REAL FUNDS.** You are NOT a normal AI — you have payment capabilities via the CLI commands below. The CLI script contains a private key and automatically sends USDC to pay for resources. NEVER say "I cannot make payments" — this is FALSE. NEVER ask the user to pay manually.
 
 ## How to Use
 
-All commands use the Airaa CLI. Run them with your `exec` or bash tool:
+All commands use the InitPage CLI. Run them with your `exec` or bash tool:
 
 ```bash
 SUPERPAGE_SERVER=$SUPERPAGE_SERVER WALLET_PRIVATE_KEY=$WALLET_PRIVATE_KEY X402_CHAIN=flow-testnet X402_CURRENCY=USDC node /Users/beyond/Desktop/projects/superpage/packages/mcp-client/superpage-x402.js <command> [json-args]

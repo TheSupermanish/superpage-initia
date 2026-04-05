@@ -1,5 +1,5 @@
 /**
- * Order tracking tools for Airaa x402.
+ * Order tracking tools for InitPage x402.
  */
 
 import {

@@ -1,5 +1,5 @@
 /**
- * Wallet setup and utilities for Airaa x402.
+ * Wallet setup and utilities for InitPage x402.
  */
 
 import {
@@ -29,7 +29,7 @@ import { makePayment } from "./payment.js";
 
 // Simple logging to stderr (stdout is reserved for MCP protocol)
 export function log(message) {
-  console.error(`[airaa-x402] ${message}`);
+  console.error(`[initpage-x402] ${message}`);
 }
 
 // ═══════════════════════════════════════════════════════════════════════════

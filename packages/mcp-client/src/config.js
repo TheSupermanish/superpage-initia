@@ -1,5 +1,5 @@
 /**
- * Configuration and chain definitions for Airaa x402.
+ * Configuration and chain definitions for InitPage x402.
  */
 
 import {
@@ -143,7 +143,7 @@ export const CHAINS = {
   "flow-testnet": flowTestnet,
   "initia-testnet": defineChain({
     id: 3120269331257541,
-    name: "Airaa Rollup (Initia MiniEVM)",
+    name: "InitPage Rollup (Initia MiniEVM)",
     nativeCurrency: { decimals: 18, name: "GAS", symbol: "GAS" },
     rpcUrls: {
       default: { http: [process.env.INITIA_RPC_URL || "http://0.0.0.0:8545"] },

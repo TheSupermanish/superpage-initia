@@ -1,5 +1,5 @@
 {
-  "name": "airaa",
+  "name": "initpage",
   "version": "1.0.0",
   "description": "A pnpm TypeScript monorepo with Express backend and Next.js frontend",
   "private": true,

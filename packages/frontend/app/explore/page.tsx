@@ -228,7 +228,7 @@ export default function ExplorePage() {
                   {search ? `Creators matching "${search}"` : "Featured Creators"}
                 </h2>
                 <p className="text-sm text-muted-foreground">
-                  {search ? `${filteredCreators.length} creator(s) found` : "The most influential builders in the Airaa ecosystem"}
+                  {search ? `${filteredCreators.length} creator(s) found` : "The most influential builders in the InitPage ecosystem"}
                 </p>
               </div>
               <Link

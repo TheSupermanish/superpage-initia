@@ -52,7 +52,7 @@ function loadArtifact(contractPath: string) {
 }
 
 async function main() {
-  console.log("=== Deploying Airaa Contracts to Initia Testnet (MiniEVM) ===\n");
+  console.log("=== Deploying InitPage Contracts to Initia Testnet (MiniEVM) ===\n");
   console.log(`RPC: ${RPC_URL}`);
   console.log(`Chain ID: ${CHAIN_ID}`);
 

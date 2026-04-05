@@ -1,4 +1,4 @@
-# Airaa MCP Client - Demo Setup
+# InitPage MCP Client - Demo Setup
 
 ## Quick Setup for Claude Desktop (Localhost Demo)
 
@@ -19,7 +19,7 @@
 ~/.config/Claude/claude_desktop_config.json
 ```
 
-### 2. Add Airaa MCP Server
+### 2. Add InitPage MCP Server
 
 Open `claude_desktop_config.json` and add:
 
@@ -54,15 +54,15 @@ Close and reopen Claude Desktop completely.
 In Claude Desktop, try these prompts:
 
 ```
-Can you show me what's available on Airaa?
+Can you show me what's available on InitPage?
 ```
 
 ```
-List all resources on Airaa
+List all resources on InitPage
 ```
 
 ```
-What stores are connected to Airaa?
+What stores are connected to InitPage?
 ```
 
 ## Available MCP Tools
@@ -83,7 +83,7 @@ Once configured, Claude can use these tools:
 
 ### Example 1: Discover and Browse
 ```
-Agent: "Show me what's available on Airaa"
+Agent: "Show me what's available on InitPage"
 (Uses x402_discover)
 
 Agent: "List all API resources under $1"

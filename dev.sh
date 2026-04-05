@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ──────────────────────────────────────────────
-#  Airaa Dev — starts all services
+#  InitPage Dev — starts all services
 # ──────────────────────────────────────────────
 set -e
 
@@ -21,7 +21,7 @@ fi
 
 echo ""
 echo "  ┌──────────────────────────────────────┐"
-echo "  │  Airaa Dev                             │"
+echo "  │  InitPage Dev                           │"
 echo "  ├──────────────────────────────────────┤"
 echo "  │  Frontend        http://localhost:3000│"
 echo "  │  Backend API     http://localhost:3001│"

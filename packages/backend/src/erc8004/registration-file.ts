@@ -24,9 +24,9 @@ export function buildRegistrationFile(baseUrl: string): RegistrationFile {
 
   return {
     type: "https://eips.ethereum.org/EIPS/eip-8004#registration-v1",
-    name: "Airaa Merchant Agent",
+    name: "InitPage Merchant Agent",
     description:
-      "Merchant agent for Airaa x402 — supports crypto payments for digital products and resource access via A2A and MCP protocols.",
+      "Merchant agent for InitPage x402 — supports crypto payments for digital products and resource access via A2A and MCP protocols.",
     services: [
       {
         name: "A2A",

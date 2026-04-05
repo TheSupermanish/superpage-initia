@@ -16,7 +16,7 @@ export const DEFAULT_NETWORK: NetworkId = (process.env.X402_CHAIN as NetworkId) 
 /** Default payment asset */
 export const DEFAULT_ASSET = "USDC";
 
-/** Airaa payment scheme identifier */
+/** InitPage payment scheme identifier */
 export const SPAY_SCHEME = "spay";
 
 // ============================================================

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Airaa x402 — MCP Client for AI Agents
+ * InitPage x402 — MCP Client for AI Agents
  *
  * Entry point: assembles tools from all modules, provides CLI mode
  * and MCP STDIO protocol handler.
@@ -118,7 +118,7 @@ if (cliCommand && CLI_COMMANDS[cliCommand]) {
     }
   })();
 } else if (cliCommand === "help" || cliCommand === "--help") {
-  console.log(`Airaa x402 CLI \u2014 AI Agent Marketplace
+  console.log(`InitPage x402 CLI \u2014 AI Agent Marketplace
 
 Usage: node superpage-x402.js <command> [json-args]
 

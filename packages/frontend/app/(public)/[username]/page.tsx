@@ -272,7 +272,7 @@ export default function PublicProfilePage() {
             onClick={() => {
               if (navigator.share) {
                 navigator.share({
-                  title: `${profile.displayName || profile.username} on Airaa`,
+                  title: `${profile.displayName || profile.username} on InitPage`,
                   url: window.location.href
                 });
               } else {
@@ -604,9 +604,9 @@ export default function PublicProfilePage() {
             <div className="size-8 rounded-full bg-primary flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-sm">A</span>
             </div>
-            <span className="text-sm font-bold">Airaa</span>
+            <span className="text-sm font-bold">InitPage</span>
           </div>
-          <p className="text-xs text-muted-foreground">Join {profile.username} on Airaa today</p>
+          <p className="text-xs text-muted-foreground">Join {profile.username} on InitPage today</p>
         </footer>
       </main>
 

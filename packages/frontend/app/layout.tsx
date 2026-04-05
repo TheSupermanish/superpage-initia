@@ -20,7 +20,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Airaa - AI-Native Commerce Platform",
+  title: "InitPage - AI-Native Commerce Platform",
   description: "AI-native commerce platform where agents and humans buy, sell, and monetize digital resources on Initia. Powered by x402 and ERC-8004. The Era of AI Commerce.",
   icons: {
     icon: [

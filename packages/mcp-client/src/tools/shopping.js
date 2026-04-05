@@ -1,5 +1,5 @@
 /**
- * Shopping tools for Airaa x402.
+ * Shopping tools for InitPage x402.
  */
 
 import {
