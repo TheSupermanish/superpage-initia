@@ -1,7 +1,7 @@
 {
   "project_name": "InitPage",
   "repo_url": "https://github.com/TheSupermanish/initpage",
-  "commit_sha": "665ee9f9caaa9e598f5f03d80b1fe190f98cab91",
+  "commit_sha": "66f554e422c01ac8c849ea79379f19174f6da0dc",
   "rollup_chain_id": "initpage",
   "deployed_address": "0x06d1a12b351cab22727515c1f4fec2544f42d751",
   "vm": "evm",
