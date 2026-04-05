@@ -21,6 +21,25 @@ const config = createConfig({
   transports: { [mainnet.id]: http() },
 });
 
+// InitPage rollup chain definition for InterwovenKit
+const initpageChain = {
+  chainId: "initpage",
+  chainName: "InitPage",
+  restUrl: process.env.NEXT_PUBLIC_INITIA_REST_URL || "http://localhost:1317",
+  rpcUrl: process.env.NEXT_PUBLIC_INITIA_RPC_URL || "http://localhost:26657",
+  jsonRpcUrl: process.env.NEXT_PUBLIC_INITIA_JSONRPC_URL || "http://localhost:8545",
+  gasPrice: {
+    denom: "GAS",
+    low: "0",
+    average: "0",
+    high: "0",
+  },
+  evm: {
+    chainId: 2314866461475837,
+    jsonRpcUrl: process.env.NEXT_PUBLIC_INITIA_JSONRPC_URL || "http://localhost:8545",
+  },
+};
+
 interface EthereumWalletProviderProps {
   children: ReactNode;
 }
@@ -38,10 +57,11 @@ export function EthereumWalletProvider({ children }: EthereumWalletProviderProps
       <WagmiProvider config={config}>
         <InterwovenKitProvider
           {...TESTNET}
+          defaultChainId="initpage"
+          customChain={initpageChain as any}
           theme="dark"
           enableAutoSign={{
-            // Allow auto-signing for MiniEVM contract calls (agent transactions)
-            "initiation-2": ["/minievm.evm.v1.MsgCall"],
+            "initpage": ["/minievm.evm.v1.MsgCall"],
           }}
         >
           {mounted ? children : null}
