@@ -14,7 +14,11 @@ export function createMakePaymentTool(
     parameters: z.object({
       payTo: z
         .string()
-        .describe("Recipient address (from paymentRequirements.payTo)"),
+        .describe("Recipient wallet address — use the 'recipient' value from paymentRequirements"),
+      recipient: z
+        .string()
+        .optional()
+        .describe("Alternative name for payTo — the recipient address from paymentRequirements"),
       amount: z
         .string()
         .describe("Amount in base units (from paymentRequirements.amount)"),
@@ -25,11 +29,12 @@ export function createMakePaymentTool(
           "Expected amount from paymentRequirements.amount — used to verify the payment matches the requirement"
         ),
     }),
-    execute: async ({ payTo, amount, expectedAmount }) => {
+    execute: async ({ payTo, recipient, amount, expectedAmount }) => {
       try {
-        // Validate recipient address
-        if (!isAddress(payTo)) {
-          return { success: false, error: `Invalid Ethereum address: ${payTo}` };
+        // Use payTo or recipient (Gemini sometimes maps to either)
+        const to = payTo || recipient;
+        if (!to || !isAddress(to)) {
+          return { success: false, error: `Invalid Ethereum address: ${to}` };
         }
 
         // Validate amount matches expected payment requirement
@@ -55,16 +60,16 @@ export function createMakePaymentTool(
           };
         }
 
-        ui.paymentPending(displayAmount, payTo);
+        ui.paymentPending(displayAmount, to);
         ui.paymentSending();
 
         const txHash = await wallet.transferUsdc(
-          payTo as Address,
+          to as Address,
           amount
         );
 
         const confirmed = await wallet.waitForTx(txHash);
-        const explorerUrl = `https://scan.testnet.initia.xyz/tx/${txHash}`;
+        const explorerUrl = `https://scan.testnet.initia.xyz/initpage/evm-txs/${txHash}`;
 
         if (confirmed) {
           ui.paymentConfirmed(txHash, explorerUrl);
@@ -77,9 +82,9 @@ export function createMakePaymentTool(
           transactionHash: txHash,
           amount: displayAmount,
           amountBaseUnits: amount,
-          payTo,
+          payTo: to,
           network: "initia-testnet",
-          chainId: 3981013683081008,
+          chainId: 2314866461475837,
           explorerUrl,
         };
       } catch (err: any) {
