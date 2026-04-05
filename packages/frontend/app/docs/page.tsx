@@ -119,7 +119,7 @@ app.get('/api/premium',
             It enables automatic, programmable payments for AI agents, APIs, and digital commerce.
           </p>
           <p>
-            Built on Base with <strong className="text-primary">USDC stablecoin</strong>, InitPage makes it easy to:
+            Built on Initia with <strong className="text-primary">USDC stablecoin</strong>, InitPage makes it easy to:
           </p>
           <ul className="list-disc list-inside space-y-2 ml-4">
             <li>Create payment-gated APIs and content</li>

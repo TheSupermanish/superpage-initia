@@ -246,7 +246,7 @@ export default function FaucetPage() {
             </div>
             <div className="flex items-center justify-between">
               <span className="text-muted-foreground">Gas</span>
-              <span className="font-medium text-primary">FLOW (~$0.01)</span>
+              <span className="font-medium text-primary">GAS (~free)</span>
             </div>
             <div className="flex items-center justify-between gap-2">
               <span className="text-muted-foreground">Contract</span>

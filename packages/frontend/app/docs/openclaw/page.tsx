@@ -54,7 +54,7 @@ name: superpage-x402
 description: >
   Discover, browse, and purchase digital resources and physical
   products from the InitPage marketplace using x402 USDC payments
-  on Base
+  on Initia
 version: 2.0.0
 metadata:
   openclaw:
@@ -189,7 +189,7 @@ metadata:
                   <tr className="border-b border-border/50">
                     <td className="py-2 pr-4"><code className="bg-muted px-1.5 py-0.5 rounded text-primary">WALLET_PRIVATE_KEY</code></td>
                     <td className="py-2 pr-4">Yes</td>
-                    <td className="py-2">Ethereum private key (0x-prefixed) with USDC on Base</td>
+                    <td className="py-2">Ethereum private key (0x-prefixed) with USDC on Initia</td>
                   </tr>
                   <tr className="border-b border-border/50">
                     <td className="py-2 pr-4"><code className="bg-muted px-1.5 py-0.5 rounded text-primary">X402_CHAIN</code></td>
