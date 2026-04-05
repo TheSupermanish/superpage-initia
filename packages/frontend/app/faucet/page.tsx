@@ -1,12 +1,12 @@
 "use client";
 
 import { useState, useCallback, useEffect } from "react";
-import { useAccount, useWriteContract } from "wagmi";
+import { useAccount, useWriteContract, useSwitchChain, useChainId } from "wagmi";
 import { useInterwovenKit } from "@initia/interwovenkit-react";
 import { createPublicClient, http, parseAbi, formatUnits } from "viem";
 import { getDefaultChain, getDefaultChainId } from "@/lib/chains";
 import { PublicNavbar } from "@/components/public-navbar";
-import { Droplets, Wallet, Loader2, CheckCircle2, AlertCircle, ExternalLink, Copy, Check } from "lucide-react";
+import { Droplets, Wallet, Loader2, CheckCircle2, AlertCircle, ExternalLink, Copy, Check, ArrowRightLeft } from "lucide-react";
 import { getTxUrl, getUsdcAddress } from "@/lib/chain-config";
 
 const PAYMENT_CHAIN_ID = getDefaultChainId();
@@ -34,6 +34,9 @@ type FaucetStatus = "idle" | "switching" | "minting" | "confirming" | "success" 
 
 export default function FaucetPage() {
   const { address, isConnected } = useAccount();
+  const currentChainId = useChainId();
+  const { switchChain } = useSwitchChain();
+  const isWrongChain = isConnected && currentChainId !== PAYMENT_CHAIN_ID;
   const { openConnect } = useInterwovenKit();
   const { writeContractAsync } = useWriteContract();
 
@@ -153,6 +156,28 @@ export default function FaucetPage() {
               ))}
             </div>
           </div>
+
+          {/* Wrong chain warning */}
+          {isWrongChain && (
+            <div className="p-4 rounded-xl bg-yellow-500/10 border border-yellow-500/20 space-y-3">
+              <div className="flex items-start gap-3">
+                <AlertCircle className="text-yellow-400 flex-shrink-0 mt-0.5" size={18} />
+                <div>
+                  <p className="text-sm font-medium text-yellow-400">Wrong network</p>
+                  <p className="text-xs text-yellow-400/70 mt-1">
+                    Switch to {PAYMENT_CHAIN.name} to mint USDC
+                  </p>
+                </div>
+              </div>
+              <button
+                onClick={() => switchChain?.({ chainId: PAYMENT_CHAIN_ID })}
+                className="w-full bg-yellow-500 text-black hover:bg-yellow-400 rounded-xl font-bold py-3 transition-all flex items-center justify-center gap-2"
+              >
+                <ArrowRightLeft className="h-4 w-4" />
+                Switch to {PAYMENT_CHAIN.name}
+              </button>
+            </div>
+          )}
 
           {/* Status */}
           {isProcessing && (

@@ -4,6 +4,7 @@ import { ReactNode, useState, useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createConfig, http, WagmiProvider } from "wagmi";
 import { mainnet } from "wagmi/chains";
+import { defineChain } from "viem";
 import {
   initiaPrivyWalletConnector,
   injectStyles,
@@ -14,31 +15,26 @@ import InterwovenKitStyles from "@initia/interwovenkit-react/styles.js";
 
 const queryClient = new QueryClient();
 
-// Wagmi config with Initia's Privy connector
-const config = createConfig({
-  connectors: [initiaPrivyWalletConnector],
-  chains: [mainnet],
-  transports: { [mainnet.id]: http() },
+// InitPage rollup chain for wagmi (so MetaMask can switch to it)
+const initpageChain = defineChain({
+  id: 2314866461475837,
+  name: "InitPage Rollup",
+  nativeCurrency: { decimals: 18, name: "GAS", symbol: "GAS" },
+  rpcUrls: {
+    default: { http: [process.env.NEXT_PUBLIC_INITIA_JSONRPC_URL || "http://localhost:8545"] },
+  },
+  testnet: true,
 });
 
-// InitPage rollup chain definition for InterwovenKit
-const initpageChain = {
-  chainId: "initpage",
-  chainName: "InitPage",
-  restUrl: process.env.NEXT_PUBLIC_INITIA_REST_URL || "http://localhost:1317",
-  rpcUrl: process.env.NEXT_PUBLIC_INITIA_RPC_URL || "http://localhost:26657",
-  jsonRpcUrl: process.env.NEXT_PUBLIC_INITIA_JSONRPC_URL || "http://localhost:8545",
-  gasPrice: {
-    denom: "GAS",
-    low: "0",
-    average: "0",
-    high: "0",
+// Wagmi config with both mainnet (for InterwovenKit) and our rollup
+const config = createConfig({
+  connectors: [initiaPrivyWalletConnector],
+  chains: [initpageChain, mainnet],
+  transports: {
+    [initpageChain.id]: http(),
+    [mainnet.id]: http(),
   },
-  evm: {
-    chainId: 2314866461475837,
-    jsonRpcUrl: process.env.NEXT_PUBLIC_INITIA_JSONRPC_URL || "http://localhost:8545",
-  },
-};
+});
 
 interface EthereumWalletProviderProps {
   children: ReactNode;
@@ -57,12 +53,8 @@ export function EthereumWalletProvider({ children }: EthereumWalletProviderProps
       <WagmiProvider config={config}>
         <InterwovenKitProvider
           {...TESTNET}
-          defaultChainId="initpage"
-          customChain={initpageChain as any}
           theme="dark"
-          enableAutoSign={{
-            "initpage": ["/minievm.evm.v1.MsgCall"],
-          }}
+          enableAutoSign
         >
           {mounted ? children : null}
         </InterwovenKitProvider>
